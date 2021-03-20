@@ -27,7 +27,7 @@ public class ArticleControler {
 	@Autowired
 	ArticleService articleService ;
 	
-	@GetMapping("/fournisseur/{id}")
+	@GetMapping("/article/{id}")
 	public ResponseEntity<Article> getArticleById(@PathVariable (value = "id")Long id) throws RessourceNotFoundException {
 		return articleService.getArticleById(id);
 	}
@@ -35,15 +35,17 @@ public class ArticleControler {
 	public Article saveArticle(@RequestBody Article Article) {
 		return articleService.saveArticle(Article);
 	}
-	 @DeleteMapping("/fournisseur/{id}")
-	public Map<String, Boolean> delateFourniseurs(@PathVariable (value = "id")Long id) throws RessourceNotFoundException {
-		return articleService.delateFourniseurs(id);
-	}
-	 @PutMapping("/fourniseurs/{id}")
+	 @DeleteMapping("/article/{id}")
+	 public Map<String, Boolean> delateArticle(@PathVariable (value = "id") Long id) throws RessourceNotFoundException {
+			return articleService.delateArticle(id);
+		}
+
+	 @PutMapping("/articles/{id}")
 	public ResponseEntity<Article> updateFourniseur(@PathVariable (value = "id")Long id,@RequestBody Article Article) {
 		return articleService.updateFourniseur(id, Article);
 	}
-	@GetMapping("/fourniseurs")
+	
+	@GetMapping("/articles")
 	public List<Article> getAllArticle() {
 		return articleService.getAllArticle();
 	} 

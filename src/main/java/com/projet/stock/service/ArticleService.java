@@ -24,7 +24,7 @@ public class ArticleService {
 	
 	//get All Articles 
 	public List <Article> getAllArticle(){
-		System.out.print("Get all Fourniseurs");
+		System.out.print("Get all Article");
 		
 		List<Article> articles = new ArrayList<Article>();
 		articleRepository.findAll().forEach(articles ::add);
@@ -43,7 +43,7 @@ public class ArticleService {
 	
 	
 	//delete Article
-	public Map<String,Boolean > delateFourniseurs (Long id) throws RessourceNotFoundException {
+	public Map<String,Boolean > delateArticle (Long id) throws RessourceNotFoundException {
 		Article Article = articleRepository.findById(id).
 				orElseThrow(()-> new RessourceNotFoundException("Article not found"));
 			

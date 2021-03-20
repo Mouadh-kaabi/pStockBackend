@@ -52,7 +52,7 @@ public class CategorieService {
 		return response;
 	}
 	//modifier Categorie 
-		public Categorie updateCategorie(Categorie categorie) {
+	/*	public Categorie updateCategorie(Categorie categorie) {
 			if (categorie.getId() != 0) {
 				Categorie cat = categorieRepository.findById(categorie.getId()).get();
 				if (cat != null) {
@@ -60,5 +60,22 @@ public class CategorieService {
 				}
 			}
 			return categorie;
-		}
+		}*/
+	
+	public ResponseEntity<Categorie> updateCategorie(Long id,Categorie Categorie) {
+		System.out.print("Update Fourniseur");
+		
+		 Optional<Categorie> CategorieInfo = categorieRepository.findById(id);
+		 
+		 if(CategorieInfo.isPresent()) {
+			 Categorie categorie = CategorieInfo.get();
+			 categorie.setCode(Categorie.getCode());
+			 categorie.setLibelle(Categorie.getLibelle());
+			 
+			 return new ResponseEntity<>(categorieRepository.save(Categorie),HttpStatus.OK);
+		 }else 
+		 {
+			 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		 }
+	}
 }

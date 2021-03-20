@@ -28,6 +28,8 @@ public class CategorieController {
 	@Autowired
 	CategorieService categorieService ;
 	
+	
+
 	@GetMapping("/categories")
 	public List<Categorie> getAllCategorie() {
 		return categorieService.getAllCategorie();
@@ -47,10 +49,10 @@ public class CategorieController {
 		return categorieService.delateCategorie(id);
 	}
 	
-	@PutMapping("/updatecategorie")
-	public Categorie updateCategorie(@RequestBody Categorie categorie) {
-		return categorieService.updateCategorie(categorie);
-	} 
+	@PutMapping("/updatecategorie/{id}")
+	public ResponseEntity<Categorie> updateCategorie(@PathVariable (value = "id") Long id,@RequestBody Categorie Categorie) {
+		return categorieService.updateCategorie(id, Categorie);
+	}
 	
 	
 }
