@@ -74,6 +74,7 @@ public class ScategorieService {
 			 Scategorie scategorie = ScategorieInfo.get();
 			 scategorie.setCode(Scategorie.getCode());
 			 scategorie.setLibelle(Scategorie.getLibelle());
+			 scategorie.setId_cat(Scategorie.getId_cat());
 			
 			 return new ResponseEntity<>(scategorieRepository.save(Scategorie),HttpStatus.OK);
 		 }else 

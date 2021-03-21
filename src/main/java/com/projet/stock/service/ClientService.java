@@ -62,17 +62,15 @@ public class ClientService {
 			 
 			 if(ClientInfo.isPresent()) {
 				 Client client = ClientInfo.get();
-				 client.setCode(Client.getCode());
+				 
 				 client.setLibelle(Client.getLibelle());
 				 client.setAdresse(Client.getAdresse());
-				 client.setAssuj(Client.getAssuj());
+				 
 				 client.setEmail(Client.getEmail());
-				 client.setContact(Client.getContact());
-				 client.setMatfisc(Client.getMatfisc());
+				
+				 client.setfax(Client.getfax());
 				 client.setTel(Client.getTel());
-				 client.setTimbre(Client.getTimbre());
-				 client.setSolde(Client.getSolde());
-				 client.setSolde_init(Client.getSolde_init());
+				 
 				 client.setPwd(Client.getPwd());
 				 client.setLogin(Client.getLogin());
 				 

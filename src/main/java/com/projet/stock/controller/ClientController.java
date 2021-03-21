@@ -21,13 +21,14 @@ import com.projet.stock.service.ClientService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/client")
 public class ClientController {
 	
 	@Autowired
 	ClientService clientService ;
 
-	@GetMapping("/clients")
+	@GetMapping("/all")
+	
 	public List<Client> getAllClient() {
 		return clientService.getAllClient();
 	}
@@ -36,17 +37,18 @@ public class ClientController {
 	public ResponseEntity<Client> getClientById(@PathVariable (value = "id")  Long id) throws RessourceNotFoundException {
 		return clientService.getClientById(id);
 	}
-	@PostMapping("/client/add")
+	
+	@PostMapping("/inscription")
 	public Client saveClient(@RequestBody Client Client) {
 		return clientService.saveClient(Client);
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public Map<String, Boolean> delateClient(@PathVariable (value = "id")Long id) throws RessourceNotFoundException {
 		return clientService.delateClient(id);
 	}
 
-	@PutMapping("/updateclinet/{id}")
+	@PutMapping("/updtae/{id}")
 	public ResponseEntity<Client> updateClient(@PathVariable (value = "id")Long id,@RequestBody Client Client) {
 		return clientService.updateClient(id, Client);
 	} 
